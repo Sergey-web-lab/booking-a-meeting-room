@@ -1,0 +1,39 @@
+@media (max-width: 600px) {
+  .commentWrapper__textarea {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 511px) {
+
+  .tower__errorBlock,
+  .floor__errorBlock,
+  .meetingRoom__errorBlock,
+  .dateAndTime__errorBlock {
+    width: 300px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .towerAndFloor {
+    gap: 0px !important;
+  }
+
+  .commentWrapper {
+    margin-top: 25px;
+  }
+
+  .meetingRoomAndDateAndTime {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 416px) {
+  .meetingRoomWrapper {
+    margin-top: 10px;
+  }
+
+  .commentWrapper {
+    margin-top: 37px;
+  }
+}

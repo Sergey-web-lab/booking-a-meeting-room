@@ -1,7 +1,19 @@
 import "./BookingAMeetingRoomForm.css"
-import { collectFormData } from "../scripts/collectFormData";
+import "./BookingAMeetingRoomForm.media.css"
+import { validateBookingAndMeetingFormHandle } from "../scripts/validateBookingAndMeetingForm";
+import { useEffect } from "react";
 
 const BookingAMeetingRoomForm = () => {
+
+  function upperCaseTowerInput() {
+    document.querySelector('.towerWrapper__tower').addEventListener('input', function () {
+      this.value = this.value.toUpperCase()
+    })
+  }
+
+  useEffect(() => {
+    upperCaseTowerInput();
+  }, [])
 
   let arrOfFloors = [];
   let arrOfMeetingRoomsCountOnFloor = [];
@@ -24,14 +36,17 @@ const BookingAMeetingRoomForm = () => {
   return (
     <div className="formWrapper">
 
-      <form action="" method="post" name="BookingAMeetingRoomForm">
+      <form autoComplete="off" className="bookingAndMeetingRoomForm" action="" method="post" name="BookingAndMeetingRoomForm">
         <h1 className="formTitle">Форма бронирования переготоврной</h1>
 
         <div className="towerAndFloor">
 
           <div className="towerWrapper">
-            <label htmlFor="tower">Башня</label>
-            <input id="tower" list="towers" name="towers" placeholder="А или Б" />
+            <div className="tower__errorBlock"></div>
+            <div className="tower__titleElWrapper">
+              <label htmlFor="tower">Башня</label>
+              <input className="towerWrapper__tower" list="towers" name="towers" placeholder="А или Б" />
+            </div>
             <datalist id="towers">
               <option value="А"></option>
               <option value="Б"></option>
@@ -39,12 +54,15 @@ const BookingAMeetingRoomForm = () => {
           </div>
 
           <div className="floorWrapper">
-            <label htmlFor="floor">Этаж</label>
-            <input
-              id="floor"
-              list="floors"
-              name="floors"
-              placeholder={`От ${arrOfFloors[0].props.value} до ${arrOfFloors[arrOfFloors.length - 1].props.value}`} />
+            <div className="floor__errorBlock"></div>
+            <div className="floor__titleElWrapper">
+              <label htmlFor="floor">Этаж</label>
+              <input
+                className="floorWrapper__floor"
+                list="floors"
+                name="floors"
+                placeholder={`От ${arrOfFloors[0].props.value} до ${arrOfFloors[arrOfFloors.length - 1].props.value}`} />
+            </div>
             <datalist id="floors">
               {arrOfFloors}
             </datalist>
@@ -54,20 +72,26 @@ const BookingAMeetingRoomForm = () => {
         <div className="meetingRoomAndDateAndTime">
 
           <div className="meetingRoomWrapper">
-            <label htmlFor="meetingRoom">Переговорная комната на этаже</label>
-            <input
-              id="meetingRoom"
-              list="meetingRooms"
-              name="meetingRooms"
-              placeholder={`От ${arrOfMeetingRoomsCountOnFloor[0].props.value} до ${arrOfMeetingRoomsCountOnFloor[arrOfMeetingRoomsCountOnFloor.length - 1].props.value}`} />
+            <div className="meetingRoom__errorBlock"></div>
+            <div className="meetingRoom__titleElWrapper">
+              <label htmlFor="meetingRoom">Переговорная комната на этаже</label>
+              <input
+                className="meetingRoomWrapper__meetingRoom"
+                list="meetingRooms"
+                name="meetingRooms"
+                placeholder={`От ${arrOfMeetingRoomsCountOnFloor[0].props.value} до ${arrOfMeetingRoomsCountOnFloor[arrOfMeetingRoomsCountOnFloor.length - 1].props.value}`} />
+            </div>
             <datalist id="meetingRooms">
               {arrOfMeetingRoomsCountOnFloor}
             </datalist>
           </div>
 
           <div className="dateAndTimeWrapper">
-            <label htmlFor="dateAndTime">Дата и время</label>
-            <input type="datetime-local" id="dateAndTime" name="datesAndTime" placeholder='Дата и время' />
+            <div className="dateAndTime__errorBlock"></div>
+            <div className="dateAndTime__titleElWrapper">
+              <label htmlFor="dateAndTime">Дата и время</label>
+              <input type="datetime-local" className="dateAndTimeWrapper__dateAndTime" name="datesAndTime" placeholder='Дата и время' />
+            </div>
           </div>
         </div>
 
@@ -75,14 +99,13 @@ const BookingAMeetingRoomForm = () => {
           <label className="fontWeight600" htmlFor="comment">Ваш комментарий</label>
           <textarea
             name="comment"
-            id="comment"
             className="commentWrapper__textarea"
             cols="30" rows="5"
           ></textarea>
         </div>
 
         <div className="btnsWrapper">
-          <button type="submit" className='btn' onClick={(e) => collectFormData(e)}>Отправить</button>
+          <button type="submit" className='btn' onClick={(e) => validateBookingAndMeetingFormHandle(e)}>Отправить</button>
           <button type="reset" className='btn'>Очистить</button>
         </div>
       </form>

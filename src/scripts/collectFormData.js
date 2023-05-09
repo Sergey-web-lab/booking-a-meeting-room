@@ -1,11 +1,10 @@
-export async function collectFormData(e) {
-  e.preventDefault()
+export async function collectFormData() {
 
-  const tower = document.getElementById('tower');
-  const floor = document.getElementById('floor');
-  const meetingRoom = document.getElementById('meetingRoom');
-  const dateAndTime = document.getElementById('dateAndTime');
-  const comment = document.getElementById('comment');
+  const tower = document.querySelector('.towerWrapper__tower');
+  const floor = document.querySelector('.floorWrapper__floor');
+  const meetingRoom = document.querySelector('.meetingRoomWrapper__meetingRoom');
+  const dateAndTime = document.querySelector('.dateAndTimeWrapper__dateAndTime');
+  const comment = document.querySelector('.commentWrapper__textarea');
 
   const data = {
     tower: tower.value,
