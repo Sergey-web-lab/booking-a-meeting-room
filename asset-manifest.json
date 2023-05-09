@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/booking-a-meeting-room/static/css/main.b931ae95.css",
+    "main.js": "/booking-a-meeting-room/static/js/main.3161c80d.js",
+    "static/js/787.f0cbe3c8.chunk.js": "/booking-a-meeting-room/static/js/787.f0cbe3c8.chunk.js",
+    "index.html": "/booking-a-meeting-room/index.html",
+    "main.b931ae95.css.map": "/booking-a-meeting-room/static/css/main.b931ae95.css.map",
+    "main.3161c80d.js.map": "/booking-a-meeting-room/static/js/main.3161c80d.js.map",
+    "787.f0cbe3c8.chunk.js.map": "/booking-a-meeting-room/static/js/787.f0cbe3c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b931ae95.css",
+    "static/js/main.3161c80d.js"
+  ]
+}
